@@ -7,13 +7,13 @@ int myStrlen(char * src){
   while(*src++){ //goes through string until 0 (false)
     x += 1;
   }
-  return x; 
+  return x;
 }
 
 //precon: size of dest >= size of src
 //cpies string from src to dest
 char* myStrcpy( char *dest, char *source ){
-  while(*dest++  = *source++ && ); //copies each value of src into dest
+  while(*dest++  = *source++  ); //copies each value of src into dest
   return dest;
 }
 
@@ -51,9 +51,10 @@ int myStrcmp( char *s1, char *s2){
 //checks whether a chr belongs in a string
 char * myStrchr(char *s, char c){
   while (*s != NULL && *s++ != c); //continues checking until chr in str or until NULL
+  s--;
   if (*s == NULL)
     return NULL;
-  s--;
+
   return s;
 }
 
@@ -62,6 +63,7 @@ int main(){
   char * lenTest = "Hello";
   printf("Ours: Length of 'Hello': %d\n", myStrlen(lenTest));
   printf("Library: Length of 'Hello': %ld\n", strlen(lenTest));
+
   printf("\n--------------------\n");
 
   char* ScpyTest = "Hello";
@@ -77,6 +79,7 @@ int main(){
   printf("Source holds: %s\n", ScpyTest2);
   strcpy(DcpyTest2,ScpyTest2);
   printf("Library: Destination now holds: %s\n", DcpyTest2);
+
   printf("\n------------------\n");
 
   char DcatTest[3] = "Hi";
@@ -92,30 +95,33 @@ int main(){
   printf("Source holds: %s\n", ScatTest2);
   strncat(DcatTest2,ScatTest2,3);
   printf("Library: Destination now holds: %s\n", DcatTest2);
+
   printf("\n-------------------\n");
 
   char * a = "HElLO";
   char * b = "HELLO";
   printf("Ours: Comparing string a (%s) to string b (%s): %d\n", a, b, myStrcmp(a,b));
   printf("Library: Comparing string a (%s) to string b (%s): %d\n", a, b, strcmp(a,b));
+
   printf("\n-------------------\n");
 
   char * a1 = "HELLO";
   char * b1 = "HELLO";
   printf("Ours: Comparing string a1 (%s) to string b1 (%s): %d\n", a1, b1, myStrcmp(a1,b1));
   printf("Library: Comparing string a1 (%s) to string b1 (%s): %d\n", a1, b1, strcmp(a1,b1));
+
   printf("\n-------------------\n");
 
-  
+
   char * a2 = "HELL";
   char * b2 = "HELLO";
   printf("Ours: Comparing string a2 (%s) to string b2 (%s): %d\n", a2, b2, myStrcmp(a2,b2));
   printf("Library: Comparing string a2 (%s) to string b2 (%s): %d\n", a2, b2, strcmp(a2,b2));
   printf("\n-------------------\n");
 
-  char * z = "HelLO";
+  char * z = "Hello";
   printf("Ours: Finding letters after e of z(%s): %s\n", z, myStrchr(z,'e'));
-  printf("Library: Finding letters after e of z(%s): %s\n", z, strchr(z,'e'));  
+  printf("Library: Finding letters after e of z(%s): %s\n", z, strchr(z,'e'));
   printf("\n-------------------\n");
 
 

@@ -124,6 +124,11 @@ int main(){
   printf("Library: Finding letters after e of z(%s): %s\n", z, strchr(z,'e'));
   printf("\n-------------------\n");
 
+  char * z2 = "Cake";
+  printf("Ours: Finding letters after e of z(%s): %s\n", z2, myStrchr(z2,'e'));
+  printf("Library: Finding letters after e of z(%s): %s\n", z2, strchr(z2,'e'));
+  printf("\n-------------------\n");
+
 
   return 0;
 }
